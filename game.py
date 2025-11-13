@@ -6,16 +6,19 @@ import random
 def play_game():
     print("Welcome to the Number Guessing Game!")
     number = random.randint(1, 10)
-    guess = 0
+    guess = None
 
     while guess != number:
-        guess = int(input("Guess a number between 1 and 10: "))
-        if guess < number:
-            print("Too low! Try again.")
-        elif guess > number:
-            print("Too high! Try again.")
-        else:
-            print("🎉 You guessed it!")
+        try:
+            guess = int(input("Guess a number between 1 and 10: "))
+            if guess < number:
+                print("Too low! Try again.")
+            elif guess > number:
+                print("Too high! Try again.")
+            else:
+                print("🎉 You guessed it!")
+        except ValueError:
+            print("Please enter a valid number.")
 
 while True:
     play_game()
